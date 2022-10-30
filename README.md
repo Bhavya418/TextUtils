@@ -1,4 +1,4 @@
-#TextUtils
+##TextUtils
 This is a utility for manipulating the text with which you can change your text to uppercase, lowercase, camelcase, remove extra spaces and much more
 # Getting Started with Create React App
 
