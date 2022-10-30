@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // Imported the usetext from react
 
 export default function TextForm(props) {
+  
   const handleUpClick = () => {
     // console.log("Convert to Uppercase was clicked "+ text);
     let newText = text.toUpperCase();
@@ -42,6 +43,7 @@ export default function TextForm(props) {
     let text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
     props.showAlert("Copied to clipboard", "success");
   };
   const removeExtraSpaces = () => {
@@ -79,7 +81,7 @@ export default function TextForm(props) {
     Now to neglect spaces at the start and end by trimming it and having the start of the useul text and have the correct end. 
     Further splitting the text by a space or more to only get the strings and not anything else*/
     if (text.length > 0) {
-      return text.trim().split(/[ ]+/).length;
+      return text.trim().split(/\s+/).length;
     } else {
       return 0;
     }
@@ -108,45 +110,45 @@ export default function TextForm(props) {
           ></textarea>
         </div>
         <div className="btngroup">
-          <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>
+          <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>
             Convert to Uppercase
           </button>
-          <button
+          <button disabled={text.length===0}
             className="btn btn-primary mx-2 my-2"
             onClick={handleLowClick}
           >
             Convert to Lowercase
           </button>
-          <button className="btn btn-primary mx-2 my-2" onClick={handleCopy}>
+          <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleCopy}>
             Copy Text
           </button>
-          <button
+          <button disabled={text.length===0}
             className="btn btn-primary mx-2 my-2"
             onClick={removeDuplicates}
           >
             Remove Duplicates
           </button>
-          <button
+          <button disabled={text.length===0}
             className="btn btn-primary mx-2 my-2"
             onClick={removeExtraSpaces}
           >
             Remove Extra Spaces
           </button>
 
-          <button
+          <button disabled={text.length===0}
             className="btn btn-primary mx-2 my-2"
             onClick={reverseSentence}
           >
             Reverse sentence
           </button>
-          <button
+          <button disabled={text.length===0}
             type="submit"
             className="btn btn-primary mx-2 my-2"
             onClick={speak}
           >
             Speak Text
           </button>
-          <button className="btn btn-primary mx-2 my-2" onClick={clearText}>
+          <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={clearText}>
             Clear text
           </button>
         </div>
