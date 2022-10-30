@@ -1,3 +1,4 @@
+This is a utility for manipulating the text with which you can change your text to uppercase, lowercase, camelcase, remove extra spaces and much more
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
